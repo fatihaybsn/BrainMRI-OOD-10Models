@@ -1,6 +1,6 @@
 Bu repo, beyin MRI görüntülerinden **Tumor / No Tumor** ikili sınıflandırma problemi için yaptığım (ders projesi kapsamlı) çalışmayı, **gerçek-hayat benzeri çözünürlük dağılımına sahip bir dış test (OOD)** senaryosunda raporlar.
 
-## 📊 Extended Results & Visualizations
+## 📊 Detaylı Sonuçlar & Görselleştirmeler
 README'deki tablo özet niteliğindedir. 10 farklı modelin birbirleriyle olan tüm karşılaştırmalı grafikleri (Accuracy/Loss curves, ROC curves), hata analizleri ve eğitim parametreleri için hazırladığım kapsamlı raporu inceleyin:
 
 👉 **[Download / View Technical Report (PDF)](./reports/Brain_Tumor_Classification_Report.pdf)**
