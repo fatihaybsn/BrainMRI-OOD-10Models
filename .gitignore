@@ -1,0 +1,26 @@
+# Data & artifacts
+data/
+datasets/
+models/
+checkpoints/
+runs/
+wandb/
+mlruns/
+dvc.lock
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+.ipynb_checkpoints/
+.pytest_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+*.log

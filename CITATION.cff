@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "Brain MRI Tumor vs No-Tumor — OOD Generalization Benchmark (10 Models)"
+type: software
+authors:
+  - family-names: "Ayıbasan"
+    given-names: "Fatih"
+date-released: "2026-02-02"
+url: "https://github.com/<YOUR_GITHUB_USERNAME>/<REPO_NAME>"
+keywords:
+  - "computer vision"
+  - "medical imaging"
+  - "brain mri"
+  - "transfer learning"
+  - "out-of-distribution"
+license: "MIT"
