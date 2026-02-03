@@ -1,0 +1,5 @@
+Veri seti aşağıdakilerin karışımından oluşuyor:
+
+https://www.kaggle.com/datasets/navoneel/brain-mri-images-for-brain-tumor-detection
+
+https://www.kaggle.com/datasets/ahmedhamada0/brain-tumor-detection
