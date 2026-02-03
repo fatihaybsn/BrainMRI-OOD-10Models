@@ -1,0 +1,14 @@
+group,variant_file,variant,precision,recall_sensitivity,f1,kappa,auc,accuracy
+convnext_tiny,convnext_tiny/convnext_tiny_metrics.csv,convnext_tiny,1.0,0.5570996978851964,0.7155607295304619,0.5527336353188359,0.9603446906820836,0.7746695358130956
+densenet121,densenet121/densenet121_metrics.csv,densenet121,1.0,0.5776435045317221,0.7322864802757565,0.5733248542986473,0.9842268848144772,0.7851214263756533
+efficientnet_b0,efficientnet_b0/efficientnet_b0_metrics.csv,efficientnet_b0,0.9969650986342944,0.3969788519637462,0.567847882454624,0.3915249697352413,0.902755710499151,0.6925914540424224
+Hybrid - DenseNet121 + EfficientNetB0,Hybrid - DenseNet121 + EfficientNetB0/hybrid_dn121_effb0_not_augmentation_metrics.csv,hybrid_dn121_effb0_not_augmentation,1.0,0.683987915407855,0.8123430211697166,0.6801545573377605,0.9389005894830774,0.8392253304641869
+Hybrid - DenseNet121 + EfficientNetB0,Hybrid - DenseNet121 + EfficientNetB0/augmentation_hybrid_dn121_effb0/hybrid_dn121_effb0_0.3_augmentation_metrics.csv,hybrid_dn121_effb0_0.3_augmentation,1.0,0.7262839879154078,0.8414420721036052,0.7227557339788279,0.966526133497688,0.8607439286812173
+Hybrid 2- SwinEff,Hybrid 2- SwinEff/hybrid_swinT_effb0_not_augmentation_metrics.csv,hybrid_swinT_effb0_not_augmentation,1.0,0.4984894259818731,0.6653225806451614,0.4940702945083938,0.95626065814897,0.7448509068552106
+Hybrid 2- SwinEff,Hybrid 2- SwinEff/hybrid_swinT_effb0_augmentation/hybrid_swinT_effb0_0.3_augmentation_metrics.csv,hybrid_swinT_effb0_0.3_augmentation,0.9969818913480886,0.5987915407854985,0.7482068705171763,0.5926923627811755,0.9749119934661528,0.7949584998462957
+inception_v3,inception_v3/inception_v3_not_augmentation_metrics.csv,inception_v3_not_augmentation,1.0,0.4302114803625377,0.6016054076890579,0.4258836251628493,0.9005679304568777,0.7101137411620043
+mobilenetv2_100,mobilenetv2_100/mobilenetv2_100_not_augmentation_metrics.csv,mobilenetv2_100_not_augmentation,1.0,0.2900302114803625,0.4496487119437939,0.286403720440486,0.8894070760656259,0.6387949584998462
+My Model,My Model/custom_msaf_effb0_My_model_not_augmentation_metrics.csv,custom_msaf_effb0_My_model_not_augmentation,0.9990234375,0.6181268882175227,0.7637178051511758,0.613330549164214,0.9355656050425571,0.8054103904088533
+My Model,My Model/custom_msaf_effb0_My_model_0.3_augmentation/custom_msaf_effb0_My_model_0.3_augmentation_metrics.csv,custom_msaf_effb0_My_model_0.3_augmentation,0.9977989728539984,0.8217522658610272,0.9012591119946984,0.817303125654916,0.9884039339204216,0.908392253304642
+resnet34,resnet34/resnet34_not_augmentatiton_metrics.csv,resnet34_not_augmentatiton,0.998987854251012,0.5963746223564955,0.7468785471055619,0.5914972766259858,0.953888357425634,0.7943436827543806
+resnet50,resnet50/resnet50_not_augmentatiton_metrics.csv,resnet50_not_augmentatiton,1.0,0.4483383685800604,0.6191072173550272,0.4439702468687638,0.9620738158347482,0.7193359975407316
