@@ -19,6 +19,15 @@ Eğitim ve test koşullarını bilerek “aynı dünya” olmaktan çıkardım:
 
 Amaç: Modelin sabit input’a “resize” edilmesine rağmen **farklı kaynak + farklı çözünürlük** koşullarında **genelleme** performansını görmek.
 
+---
+
+MSAF (Multi-Scale Attention Fusion) Kullanarak Geliştirdiğim Özgün Modelim:
+Standart mimarilerin aksine, geliştirdiğim özgün MSAF-EffB0 modeli, üç farklı özellik ölçeği (feature scale) üzerinde koşan dinamik bir dikkat (attention) mekanizması kullanır. Squeeze-and-Excitation (SE) bloklarını ve Softmax ağırlıklı Ölçek Dikkat (Scale Attention) katmanını entegre eden bu yapı, en kararlı ve ayırt edici özellikleri adaptif bir şekilde önceliklendirir.
+
+Eğitim sürecindeki en kritik bulgu, modelin agresif veri artırma (data augmentation) işlemlerine karşı gösterdiği içsel dirençtir: MSAF mekanizması, bozulmuş ölçeklerden gelen "gürültülü" özellikleri etkili bir şekilde filtreleyerek, modelin ekstrem veri artırma senaryolarında bile yanlış örüntüleri öğrenmeden teorik performans tavanına ulaşmasını sağlar.
+
+---
+
 Ek olarak raporda tartıştığım bir konu: orijinal veri setlerinde aynı kişiye ait benzer görüntülerin farklı split’lere düşmesi (subject leakage) metrikleri şişirebilir; bu yüzden değerlendirmeyi **dış kaynak test setleri** ile yaptım.
 
 ---
