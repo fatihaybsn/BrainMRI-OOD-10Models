@@ -30,7 +30,6 @@ Eğitim sürecindeki en kritik bulgu, modelin agresif veri artırma (data augmen
 
 Ek olarak raporda tartıştığım bir konu: orijinal veri setlerinde aynı kişiye ait benzer görüntülerin farklı split’lere düşmesi (subject leakage) metrikleri şişirebilir; bu yüzden değerlendirmeyi **dış kaynak test setleri** ile yaptım.
 
----
 
 ## Modeller
 
