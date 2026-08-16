@@ -8,6 +8,16 @@ README'deki tablo özet niteliğindedir. 10 farklı modelin birbirleriyle olan t
 
 > ⚠️ **Tıbbi kullanım için değildir.** Bu çalışma eğitim/araştırma amaçlıdır.
 
+## 🤗 Eğitilmiş Modeller — Hugging Face
+
+[![Hugging Face Model Collection](https://img.shields.io/badge/🤗%20Hugging%20Face-10%20Mimari%20%7C%2013%20Checkpoint-yellow)](https://huggingface.co/collections/Fatihaybasn/brainmri-ood-benchmark-10-architectures-13-checkpoints)
+
+Bu projede eğittiğim **10 mimariye ait 13 checkpoint**, model kartları, OOD metrikleri, mevcut sonuç görselleri, yükleme kodları ve SHA-256 kayıtlarıyla birlikte Hugging Face üzerinde yayınlanmıştır:
+
+> **[BrainMRI OOD Benchmark — 10 Architectures, 13 Checkpoints](https://huggingface.co/collections/Fatihaybasn/brainmri-ood-benchmark-10-architectures-13-checkpoints)**
+
+En iyi deneyin ağırlıkları: **[Custom MSAF + EfficientNet-B0 — Augmentation 0.3](https://huggingface.co/Fatihaybasn/brainmri-ood-custom-msaf-effb0-aug03)**
+
 ---
 
 ## Neyi farklı yaptım?
@@ -76,8 +86,11 @@ pip install -r requirements.txt
 ```
 
 ### 2) Model ağırlıkları
-Ağırlıklar için bağlantı: `reports/model_weights_link.txt`  
-(Repo şişmesin diye ağırlıkları Git’e koymadım.)
+Tüm eğitilmiş modeller ve ağırlıklar Hugging Face üzerinde yayınlanmıştır:
+
+**[🤗 BrainMRI OOD Benchmark Model Collection](https://huggingface.co/collections/Fatihaybasn/brainmri-ood-benchmark-10-architectures-13-checkpoints)**
+
+Her model deposunda güvenli `model.safetensors`, mimari yapılandırması, yükleme kodu, metrikler ve dosya doğrulama kayıtları bulunur. Repo şişmesin diye ağırlıklar GitHub içine eklenmemiştir.
 
 ### 3) Çalıştırma
 ```bash

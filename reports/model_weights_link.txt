@@ -1,1 +1,5 @@
-https://drive.google.com/drive/folders/1kT2f50iSIcvmILRvtjQXIEbGwdnIb5x3?usp=sharing 
+Hugging Face model collection (10 architectures, 13 checkpoints):
+https://huggingface.co/collections/Fatihaybasn/brainmri-ood-benchmark-10-architectures-13-checkpoints
+
+Best checkpoint - Custom MSAF + EfficientNet-B0 (augmentation 0.3):
+https://huggingface.co/Fatihaybasn/brainmri-ood-custom-msaf-effb0-aug03
