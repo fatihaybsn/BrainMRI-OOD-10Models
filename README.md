@@ -1,61 +1,72 @@
-Bu repo, beyin MRI görüntülerinden **Tumor / No Tumor** ikili sınıflandırma problemi için yaptığım çalışmayı, **gerçek-hayat benzeri çözünürlük dağılımına sahip bir dış test (OOD)** senaryosunda raporlar.
+<p align="right">🇬🇧 English | <a href="README-TR.md">🇹🇷 Türkçe</a></p>
 
-## 📊 Detaylı Sonuçlar & Görselleştirmeler
-README'deki tablo özet niteliğindedir. 10 farklı modelin birbirleriyle olan tüm karşılaştırmalı grafikleri (Accuracy/Loss curves, ROC curves), hata analizleri ve eğitim parametreleri için hazırladığım kapsamlı raporu inceleyin:
+# Brain MRI Tumor vs No-Tumor — OOD Generalization (10 Models)
+
+This repository presents my work on binary **Tumor / No Tumor** classification from brain MRI images under an **external test (OOD) scenario with a real-world-like resolution distribution**.
+
+## 🌐 Portfolio Project Page
+
+For a more visual and detailed presentation of the project, architecture comparisons, and highlighted results, visit the project page on my portfolio website:
+
+> **[View the BrainMRI OOD — 10 Models Project Page](https://fathaybasn.me/projects/brainmri-ood-10models)**
+
+## 📊 Detailed Results & Visualizations
+
+The table in this README is a summary. For all comparative graphs across the 10 models (Accuracy/Loss curves and ROC curves), error analyses, and training parameters, see the comprehensive technical report:
 
 👉 **[Download / View Technical Report (PDF)](./reports/Brain_Tumor_Classification_Report.pdf)**
 
 
-> ⚠️ **Tıbbi kullanım için değildir.** Bu çalışma eğitim/araştırma amaçlıdır.
+> ⚠️ **Not for medical use.** This work is intended for educational and research purposes only.
 
-## 🤗 Eğitilmiş Modeller — Hugging Face
+## 🤗 Trained Models — Hugging Face
 
-[![Hugging Face Model Collection](https://img.shields.io/badge/🤗%20Hugging%20Face-10%20Mimari%20%7C%2013%20Checkpoint-yellow)](https://huggingface.co/collections/Fatihaybasn/brainmri-ood-benchmark-10-architectures-13-checkpoints)
+[![Hugging Face Model Collection](https://img.shields.io/badge/🤗%20Hugging%20Face-10%20Architectures%20%7C%2013%20Checkpoints-yellow)](https://huggingface.co/collections/Fatihaybasn/brainmri-ood-benchmark-10-architectures-13-checkpoints)
 
-Bu projede eğittiğim **10 mimariye ait 13 checkpoint**, model kartları, OOD metrikleri, mevcut sonuç görselleri, yükleme kodları ve SHA-256 kayıtlarıyla birlikte Hugging Face üzerinde yayınlanmıştır:
+The **13 checkpoints from 10 architectures** trained in this project have been published on Hugging Face together with model cards, OOD metrics, available result figures, loading code, and SHA-256 records:
 
 > **[BrainMRI OOD Benchmark — 10 Architectures, 13 Checkpoints](https://huggingface.co/collections/Fatihaybasn/brainmri-ood-benchmark-10-architectures-13-checkpoints)**
 
-En iyi deneyin ağırlıkları: **[Custom MSAF + EfficientNet-B0 — Augmentation 0.3](https://huggingface.co/Fatihaybasn/brainmri-ood-custom-msaf-effb0-aug03)**
+Weights for the best experiment: **[Custom MSAF + EfficientNet-B0 — Augmentation 0.3](https://huggingface.co/Fatihaybasn/brainmri-ood-custom-msaf-effb0-aug03)**
 
 ---
 
-## Neyi farklı yaptım?
+## What did I do differently?
 
-Eğitim ve test koşullarını bilerek “aynı dünya” olmaktan çıkardım:
+I deliberately made the training and testing conditions come from different “worlds”:
 
-- **Train:** 11.500 görüntü (**256px & 512px sabit** çözünürlük havuzu)
-- **Test (External / OOD):** 3.500 görüntü (**190px – 800px değişken** çözünürlük)
+- **Train:** 11,500 images (**fixed 256 px and 512 px** resolution pools)
+- **Test (External / OOD):** 3,500 images (**variable 190 px–800 px** resolutions)
 
-Amaç: Modelin sabit input’a “resize” edilmesine rağmen **farklı kaynak + farklı çözünürlük** koşullarında **genelleme** performansını görmek.
-
----
-
-MSAF (Multi-Scale Attention Fusion) Kullanarak Geliştirdiğim Özgün Modelim:
-Standart mimarilerin aksine, geliştirdiğim özgün MSAF-EffB0 modeli, üç farklı özellik ölçeği (feature scale) üzerinde koşan dinamik bir dikkat (attention) mekanizması kullanır. Squeeze-and-Excitation (SE) bloklarını ve Softmax ağırlıklı Ölçek Dikkat (Scale Attention) katmanını entegre eden bu yapı, en kararlı ve ayırt edici özellikleri adaptif bir şekilde önceliklendirir.
-
-Eğitim sürecindeki en kritik bulgu, modelin agresif veri artırma (data augmentation) işlemlerine karşı gösterdiği içsel dirençtir: MSAF mekanizması, bozulmuş ölçeklerden gelen "gürültülü" özellikleri etkili bir şekilde filtreleyerek, modelin ekstrem veri artırma senaryolarında bile yanlış örüntüleri öğrenmeden teorik performans tavanına ulaşmasını sağlar.
+The objective was to evaluate **generalization** under **different source and resolution conditions**, even though images are resized to a fixed model input size.
 
 ---
 
-Ek olarak raporda tartıştığım bir konu: orijinal veri setlerinde aynı kişiye ait benzer görüntülerin farklı split’lere düşmesi (subject leakage) metrikleri şişirebilir; bu yüzden değerlendirmeyi **dış kaynak test setleri** ile yaptım.
+My Custom Model Developed with MSAF (Multi-Scale Attention Fusion):
+Unlike standard architectures, my custom MSAF-EffB0 model uses a dynamic attention mechanism operating across three different feature scales. By integrating Squeeze-and-Excitation (SE) blocks with a Softmax-weighted Scale Attention layer, the architecture adaptively prioritizes the most stable and discriminative features.
+
+The most important finding during training was the model’s intrinsic resistance to aggressive data augmentation. The MSAF mechanism effectively filters “noisy” features coming from distorted scales, allowing the model to reach its theoretical performance ceiling without learning incorrect patterns, even under extreme augmentation scenarios.
+
+---
+
+Another issue discussed in the report is that similar images from the same subject can appear in different splits in the original datasets. This subject leakage can inflate metrics, so evaluation was performed using **external-source test datasets**.
 
 
-## Modeller
+## Models
 
-Bu zip’te yer alan çıktı/defterlerde görünen deneyler:
+The experiments visible in the outputs and notebooks included in this repository are:
 
-- Standart backbone’lar (timm / transfer learning): ConvNeXt-Tiny, DenseNet121, EfficientNet-B0, InceptionV3, MobileNetV2, ResNet34, ResNet50
-- Hibrit (ensemble / birleştirme):  
-  - DenseNet121 + EfficientNetB0  
+- Standard backbones (timm / transfer learning): ConvNeXt-Tiny, DenseNet121, EfficientNet-B0, InceptionV3, MobileNetV2, ResNet34, ResNet50
+- Hybrid (ensemble / feature fusion):
+  - DenseNet121 + EfficientNetB0
   - Swin-T + EfficientNetB0
-- Özgün mimari: **My Model (MSAF + EfficientNetB0 tabanlı)**
+- Custom architecture: **My Model (based on MSAF + EfficientNetB0)**
 
 ---
 
-## Sonuç Özeti (OOD test)
+## Results Summary (OOD Test)
 
-Metrikler `results/metrics_summary.csv` dosyasından derlendi.
+Metrics were compiled from `results/metrics_summary.csv`.
 
 | experiment | accuracy | auc | f1 | recall_sensitivity | precision | kappa |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -74,58 +85,61 @@ Metrikler `results/metrics_summary.csv` dosyasından derlendi.
 | mobilenetv2_100 / no-aug | 0.639 | 0.889 | 0.450 | 0.290 | 1.000 | 0.286 |
 
 
-> En iyi deney: **My Model / aug (p=0.3)** — Accuracy **0.908**, AUC **0.988**, F1 **0.901**
+> Best experiment: **My Model / aug (p=0.3)** — Accuracy **0.908**, AUC **0.988**, F1 **0.901**
 
 ---
 
-## Hızlı Başlangıç: Tek görselde inference
+## Quick Start: Inference on a Single Image
 
-### 1) Kurulum
+### 1) Installation
+
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2) Model ağırlıkları
-Tüm eğitilmiş modeller ve ağırlıklar Hugging Face üzerinde yayınlanmıştır:
+### 2) Model weights
+
+All trained models and weights have been published on Hugging Face:
 
 **[🤗 BrainMRI OOD Benchmark Model Collection](https://huggingface.co/collections/Fatihaybasn/brainmri-ood-benchmark-10-architectures-13-checkpoints)**
 
-Her model deposunda güvenli `model.safetensors`, mimari yapılandırması, yükleme kodu, metrikler ve dosya doğrulama kayıtları bulunur. Repo şişmesin diye ağırlıklar GitHub içine eklenmemiştir.
+Each model repository contains safe `model.safetensors` weights, architecture configuration, loading code, metrics, and file-verification records. The weights are not stored in GitHub to avoid inflating the repository.
 
-### 3) Çalıştırma
+### 3) Run
+
 ```bash
 python scripts/universal_infer.py --model "PATH/TO/model.pt" --image "PATH/TO/image.jpg" --device cpu
-# veya
+# or
 python scripts/universal_infer.py --model "PATH/TO/model.pt" --image "PATH/TO/image.jpg" --device cuda
 ```
 
-Detaylar: `scripts/universal_infer_README.txt`
+Details: `scripts/universal_infer_README.txt`
 
 ---
 
-## Repo yapısı
+## Repository Structure
 
-- `notebooks/` → eğitim & deney defterleri (ham çalışma akışı)
-- `scripts/` → inference script’i ve kullanım dökümanı
-- `results/` → metrik özetleri ve model başına raporlar (CSV/TXT)
-- `reports/` → proje raporu (docx) + dataset / weight linkleri
-- `src/` → ileride kodu “paket” yapmak için iskelet (opsiyonel)
-
----
-
-## Veri setleri
-
-- Train ana kaynak: Mendeley (rapor içinde link var)
-- External test (OOD): Kaggle karışımı (linkler `reports/dataset_links.txt`)
+- `notebooks/` → training and experiment notebooks (raw workflow)
+- `scripts/` → inference script and usage documentation
+- `results/` → metrics summaries and per-model reports (CSV/TXT)
+- `reports/` → project report (DOCX) and dataset/weight links
+- `src/` → optional scaffold for packaging the code in the future
 
 ---
 
-## Alıntılama
+## Datasets
 
-Bu repo kökünde `CITATION.cff` var. GitHub bunu otomatik “Cite this repository” olarak gösterir.
+- Main training source: Mendeley (link available in the report)
+- External test (OOD): mixture of Kaggle datasets (links in `reports/dataset_links.txt`)
 
 ---
 
-## Lisans
+## Citation
 
-MIT (bkz. `LICENSE`)
+The repository root contains `CITATION.cff`. GitHub automatically displays it as “Cite this repository.”
+
+---
+
+## License
+
+MIT (see `LICENSE`)
